@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk7tr5ohduso1"]
+
+[ext_resource type="Texture2D" uid="uid://cr7ap5hlo4qft" path="res://recursos/Ball.png" id="1_u664t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ckov8"]
+radius = 24.0
+
+[node name="pelota" type="CharacterBody2D"]
+position = Vector2(576, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.309804, 0.517647, 1, 1)
+position = Vector2(1.19209e-05, -1.90735e-06)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_u664t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ckov8")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://buw0gq54rm3kx"]
+
+[ext_resource type="Texture2D" uid="uid://cklldwraroy60" path="res://recursos/Board.png" id="1_vvcrg"]
+[ext_resource type="Texture2D" uid="uid://2vot7hwmx3i4" path="res://recursos/pixel-art-seamless-pattern-brick-texture-vector-30705377.jpg" id="2_7csnn"]
+[ext_resource type="PackedScene" uid="uid://qh0ydabs230b" path="res://jugador_1.tscn" id="3_ed16r"]
+[ext_resource type="PackedScene" uid="uid://jfywwp23insv" path="res://jugador_2.tscn" id="4_u4v4n"]
+[ext_resource type="PackedScene" uid="uid://dk7tr5ohduso1" path="res://pelota.tscn" id="5_ih13i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8vgn"]
+size = Vector2(40, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8s82"]
+size = Vector2(42, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hplmu"]
+size = Vector2(1080, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65dx2"]
+size = Vector2(1076, 60)
+
+[node name="ping pong" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 323.25)
+scale = Vector2(1.43392, 1.41868)
+texture = ExtResource("1_vvcrg")
+
+[node name="pared izquierda" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pared izquierda"]
+position = Vector2(7, 355)
+scale = Vector2(0.066, 0.653704)
+texture = ExtResource("2_7csnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared izquierda"]
+position = Vector2(18, 323)
+shape = SubResource("RectangleShape2D_a8vgn")
+
+[node name="pared derecha" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pared derecha"]
+position = Vector2(1146, 355)
+scale = Vector2(0.064, 0.657407)
+texture = ExtResource("2_7csnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared derecha"]
+position = Vector2(1131, 323)
+shape = SubResource("RectangleShape2D_p8s82")
+
+[node name="techo" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="techo"]
+position = Vector2(1146, 355)
+scale = Vector2(0.064, 0.657407)
+texture = ExtResource("2_7csnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="techo"]
+position = Vector2(578, 2)
+shape = SubResource("RectangleShape2D_hplmu")
+
+[node name="piso" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="piso"]
+position = Vector2(1146, 355)
+scale = Vector2(0.064, 0.657407)
+texture = ExtResource("2_7csnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso"]
+position = Vector2(576, 643)
+shape = SubResource("RectangleShape2D_65dx2")
+
+[node name="jugador 1" parent="." instance=ExtResource("3_ed16r")]
+
+[node name="jugador 2" parent="." instance=ExtResource("4_u4v4n")]
+
+[node name="pelota" parent="." instance=ExtResource("5_ih13i")]
