@@ -49,21 +49,11 @@ shape = SubResource("RectangleShape2D_p8s82")
 
 [node name="techo" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="techo"]
-position = Vector2(1146, 355)
-scale = Vector2(0.064, 0.657407)
-texture = ExtResource("2_7csnn")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="techo"]
 position = Vector2(578, 2)
 shape = SubResource("RectangleShape2D_hplmu")
 
 [node name="piso" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="piso"]
-position = Vector2(1146, 355)
-scale = Vector2(0.064, 0.657407)
-texture = ExtResource("2_7csnn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="piso"]
 position = Vector2(576, 643)

@@ -13,9 +13,24 @@ func _ready():
 	else: 
 		velocity.x -=impulse_speed
 
-
 	if randi()% 2 == 0 :
 		velocity.y += impulse_speed
 		
 	else: 
 		velocity.y -=impulse_speed
+
+func _physics_process(delta):
+	
+	position += velocity* delta
+	var collision_info= move_and_collide(velocity * delta)
+	
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+	
+	timer += delta
+	
+	if timer >= time_interval:
+		velocity *= 1 + speed_increment / 100
+		
+		timer=0 
+

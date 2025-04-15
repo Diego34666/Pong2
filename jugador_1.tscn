@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://qh0ydabs230b"]
 
-[ext_resource type="Script" path="res://jugador_2.gd" id="1_cysof"]
 [ext_resource type="Texture2D" uid="uid://b8c2k7kk61kkd" path="res://recursos/Player.png" id="1_jdsqr"]
+[ext_resource type="Script" path="res://jugador_1.gd" id="1_r0fky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik4cg"]
 size = Vector2(31, 123)
 
 [node name="jugador 1" type="CharacterBody2D"]
-script = ExtResource("1_cysof")
+script = ExtResource("1_r0fky")
 
 [node name="paleta 1" type="Sprite2D" parent="."]
 position = Vector2(32, 320)
