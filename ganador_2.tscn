@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://r4xtetwe8f52"]
+
+[ext_resource type="Texture2D" uid="uid://cud0wxj1nto47" path="res://recursos/ganador 2 .png" id="1_b7bc8"]
+[ext_resource type="Script" uid="uid://n1cc24380gmf" path="res://ganador_2.gd" id="1_r4apo"]
+[ext_resource type="FontFile" uid="uid://dmvqi817gebfv" path="res://recursos/drover3dital.ttf" id="2_r4apo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ehvdh"]
+font = ExtResource("2_r4apo")
+font_size = 80
+
+[node name="ganador_2" type="Node2D"]
+script = ExtResource("1_r4apo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.25, 324.75)
+scale = Vector2(5.14444, 2.85556)
+texture = ExtResource("1_b7bc8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 292.0
+offset_top = 56.0
+offset_right = 838.0
+offset_bottom = 149.0
+text = "jugador 2"
+label_settings = SubResource("LabelSettings_ehvdh")
+
+[node name="volver" type="Button" parent="."]
+modulate = Color(0, 0.62728, 0.627782, 1)
+offset_left = 376.0
+offset_top = 496.0
+offset_right = 854.0
+offset_bottom = 584.0
+theme_override_fonts/font = ExtResource("2_r4apo")
+theme_override_font_sizes/font_size = 30
+text = "volver a la partida
+"
+
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

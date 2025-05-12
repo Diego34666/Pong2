@@ -1,16 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://buw0gq54rm3kx"]
+[gd_scene load_steps=18 format=3 uid="uid://buw0gq54rm3kx"]
 
+[ext_resource type="Script" uid="uid://dwkd0x05aiaqb" path="res://escena/ping_pong.gd" id="1_rkm1m"]
 [ext_resource type="Texture2D" uid="uid://cklldwraroy60" path="res://recursos/Board.png" id="1_vvcrg"]
 [ext_resource type="Texture2D" uid="uid://2vot7hwmx3i4" path="res://recursos/pixel-art-seamless-pattern-brick-texture-vector-30705377.jpg" id="2_7csnn"]
 [ext_resource type="PackedScene" uid="uid://qh0ydabs230b" path="res://jugador_1.tscn" id="3_ed16r"]
+[ext_resource type="Script" uid="uid://b6jvxpaw0ahjc" path="res://escena/sprite_2d.gd" id="3_y8we8"]
+[ext_resource type="Script" uid="uid://d1ah3btucnduf" path="res://escena/pared_izquierda.gd" id="4_mhcvw"]
 [ext_resource type="PackedScene" uid="uid://jfywwp23insv" path="res://jugador_2.tscn" id="4_u4v4n"]
 [ext_resource type="PackedScene" uid="uid://dk7tr5ohduso1" path="res://pelota.tscn" id="5_ih13i"]
+[ext_resource type="FontFile" uid="uid://dmvqi817gebfv" path="res://recursos/drover3dital.ttf" id="6_bbb06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8vgn"]
-size = Vector2(40, 648)
+size = Vector2(62, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28o3e"]
+size = Vector2(104, 650)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8s82"]
-size = Vector2(42, 648)
+size = Vector2(66, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21qbv"]
+size = Vector2(104, 658)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hplmu"]
 size = Vector2(1080, 46)
@@ -18,14 +28,25 @@ size = Vector2(1080, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65dx2"]
 size = Vector2(1076, 60)
 
+[sub_resource type="LabelSettings" id="LabelSettings_2yo2y"]
+font = ExtResource("6_bbb06")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_nwy8h"]
+font = ExtResource("6_bbb06")
+font_size = 50
+
 [node name="ping pong" type="Node2D"]
+script = ExtResource("1_rkm1m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(578, 323.25)
 scale = Vector2(1.43392, 1.41868)
 texture = ExtResource("1_vvcrg")
+script = ExtResource("3_y8we8")
 
 [node name="pared izquierda" type="StaticBody2D" parent="."]
+script = ExtResource("4_mhcvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="pared izquierda"]
 position = Vector2(7, 355)
@@ -33,8 +54,14 @@ scale = Vector2(0.066, 0.653704)
 texture = ExtResource("2_7csnn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pared izquierda"]
-position = Vector2(18, 323)
+position = Vector2(7, 323)
 shape = SubResource("RectangleShape2D_a8vgn")
+
+[node name="pi" type="Area2D" parent="pared izquierda" groups=["pelota"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared izquierda/pi"]
+position = Vector2(12, 315)
+shape = SubResource("RectangleShape2D_28o3e")
 
 [node name="pared derecha" type="StaticBody2D" parent="."]
 
@@ -44,23 +71,55 @@ scale = Vector2(0.064, 0.657407)
 texture = ExtResource("2_7csnn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pared derecha"]
-position = Vector2(1131, 323)
+position = Vector2(1143, 323)
 shape = SubResource("RectangleShape2D_p8s82")
+
+[node name="pd" type="Area2D" parent="pared derecha" groups=["pelota"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared derecha/pd"]
+position = Vector2(1140, 319)
+shape = SubResource("RectangleShape2D_21qbv")
 
 [node name="techo" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="techo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="techo" groups=["Pelota"]]
 position = Vector2(578, 2)
 shape = SubResource("RectangleShape2D_hplmu")
 
 [node name="piso" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="piso"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso" groups=["Pelota"]]
 position = Vector2(576, 643)
 shape = SubResource("RectangleShape2D_65dx2")
 
 [node name="jugador 1" parent="." instance=ExtResource("3_ed16r")]
+position = Vector2(40, 0)
 
 [node name="jugador 2" parent="." instance=ExtResource("4_u4v4n")]
 
 [node name="pelota" parent="." instance=ExtResource("5_ih13i")]
+
+[node name="puntaje 1" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 64.0
+offset_right = 120.0
+offset_bottom = 90.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_2yo2y")
+
+[node name="puntaje 2" type="Label" parent="."]
+offset_left = 1032.0
+offset_top = 64.0
+offset_right = 1072.0
+offset_bottom = 122.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_nwy8h")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="pared izquierda/pi" to="." method="_on_pi_body_entered"]
+[connection signal="body_entered" from="pared derecha/pd" to="." method="_on_pd_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

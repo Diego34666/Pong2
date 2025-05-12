@@ -16,3 +16,11 @@ func _physics_process(delta):
 		velocity.y = 0
 		
 	move_and_slide()
+
+
+func _on_pi_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_pr_body_entered(body):
+	pass # Replace with function body.
