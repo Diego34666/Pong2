@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6nl08dbusdx1"]
+
+[ext_resource type="Texture2D" uid="uid://dh2jut4p0t8gp" path="res://recursos/game over 2.jpg" id="1_n8lmw"]
+[ext_resource type="Script" uid="uid://bjxtant17iq1j" path="res://ganador_22.gd" id="1_xtex0"]
+[ext_resource type="Texture2D" uid="uid://b4kcstsp3n8mp" path="res://recursos/ganador 1.png" id="2_xtex0"]
+[ext_resource type="FontFile" uid="uid://dmvqi817gebfv" path="res://recursos/drover3dital.ttf" id="3_eer81"]
+[ext_resource type="Texture2D" uid="uid://bg3f6vr4tvo1v" path="res://recursos/Computer.png" id="5_mkwb6"]
+[ext_resource type="Texture2D" uid="uid://cr7ap5hlo4qft" path="res://recursos/Ball.png" id="6_8kvao"]
+[ext_resource type="Texture2D" uid="uid://b8c2k7kk61kkd" path="res://recursos/Player.png" id="7_i8fgr"]
+
+[node name="ganador 22" type="Node2D"]
+script = ExtResource("1_xtex0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(291.5, 322.5)
+scale = Vector2(1.93, 3.80357)
+texture = ExtResource("1_n8lmw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(871.25, 324.75)
+scale = Vector2(2.54889, 2.85556)
+texture = ExtResource("2_xtex0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 548.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("3_eer81")
+theme_override_font_sizes/font_size = 80
+text = "jugador 1"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 596.0
+offset_top = 25.0
+offset_right = 1142.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("3_eer81")
+theme_override_font_sizes/font_size = 80
+text = "jugador 2"
+
+[node name="salir" type="Button" parent="."]
+modulate = Color(0.94902, 1, 1, 1)
+offset_left = 217.0
+offset_top = 527.0
+offset_right = 394.0
+offset_bottom = 590.0
+theme_override_fonts/font = ExtResource("3_eer81")
+theme_override_font_sizes/font_size = 30
+text = "salir"
+
+[node name="volver" type="Button" parent="."]
+modulate = Color(0.0313726, 1, 1, 1)
+offset_left = 788.0
+offset_top = 515.0
+offset_right = 949.0
+offset_bottom = 597.0
+theme_override_fonts/font = ExtResource("3_eer81")
+theme_override_font_sizes/font_size = 30
+text = "volver"
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1085, 511)
+scale = Vector2(2.63236, 1.31667)
+texture = ExtResource("5_mkwb6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1091, 301.5)
+scale = Vector2(1.96667, 2.23333)
+texture = ExtResource("6_8kvao")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(61.375, 504.25)
+scale = Vector2(2.30882, 1.1375)
+texture = ExtResource("7_i8fgr")
+
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

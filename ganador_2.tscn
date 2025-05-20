@@ -1,38 +1,59 @@
 [gd_scene load_steps=5 format=3 uid="uid://r4xtetwe8f52"]
 
-[ext_resource type="Texture2D" uid="uid://cud0wxj1nto47" path="res://recursos/ganador 2 .png" id="1_b7bc8"]
 [ext_resource type="Script" uid="uid://n1cc24380gmf" path="res://ganador_2.gd" id="1_r4apo"]
+[ext_resource type="Texture2D" uid="uid://dh2jut4p0t8gp" path="res://recursos/game over 2.jpg" id="2_ehvdh"]
 [ext_resource type="FontFile" uid="uid://dmvqi817gebfv" path="res://recursos/drover3dital.ttf" id="2_r4apo"]
+[ext_resource type="Texture2D" uid="uid://b4kcstsp3n8mp" path="res://recursos/ganador 1.png" id="3_vwm74"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ehvdh"]
-font = ExtResource("2_r4apo")
-font_size = 80
-
-[node name="ganador_2" type="Node2D"]
+[node name="ganador y perdedor 2" type="Node2D"]
 script = ExtResource("1_r4apo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576.25, 324.75)
-scale = Vector2(5.14444, 2.85556)
-texture = ExtResource("1_b7bc8")
+position = Vector2(300, 325)
+scale = Vector2(1.99333, 3.85714)
+texture = ExtResource("2_ehvdh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(876.75, 321.75)
+scale = Vector2(2.46444, 2.85556)
+texture = ExtResource("3_vwm74")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 292.0
-offset_top = 56.0
-offset_right = 838.0
-offset_bottom = 149.0
-text = "jugador 2"
-label_settings = SubResource("LabelSettings_ehvdh")
+offset_left = 35.0
+offset_top = 25.0
+offset_right = 558.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("2_r4apo")
+theme_override_font_sizes/font_size = 80
+text = "jugador 1"
 
-[node name="volver" type="Button" parent="."]
-modulate = Color(0, 0.62728, 0.627782, 1)
-offset_left = 376.0
-offset_top = 496.0
-offset_right = 854.0
+[node name="Label2" type="Label" parent="."]
+offset_left = 596.0
+offset_top = 25.0
+offset_right = 1142.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("2_r4apo")
+theme_override_font_sizes/font_size = 80
+text = "jugador 2"
+
+[node name="salir" type="Button" parent="."]
+offset_left = 213.0
+offset_top = 530.0
+offset_right = 385.0
 offset_bottom = 584.0
 theme_override_fonts/font = ExtResource("2_r4apo")
 theme_override_font_sizes/font_size = 30
-text = "volver a la partida
-"
+text = "salir"
 
+[node name="volver" type="Button" parent="."]
+modulate = Color(0.121569, 1, 1, 1)
+offset_left = 788.0
+offset_top = 531.0
+offset_right = 987.0
+offset_bottom = 591.0
+theme_override_fonts/font = ExtResource("2_r4apo")
+theme_override_font_sizes/font_size = 30
+text = "volver"
+
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

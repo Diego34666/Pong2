@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv416vsgtmw2e"]
+
+[ext_resource type="Texture2D" uid="uid://cklldwraroy60" path="res://recursos/Board.png" id="1_7e6sy"]
+[ext_resource type="Script" uid="uid://ctdg31qh2raki" path="res://inicio.gd" id="1_x8a4r"]
+[ext_resource type="FontFile" uid="uid://dmvqi817gebfv" path="res://recursos/drover3dital.ttf" id="2_x8a4r"]
+[ext_resource type="Texture2D" uid="uid://cr7ap5hlo4qft" path="res://recursos/Ball.png" id="3_xagyt"]
+[ext_resource type="Texture2D" uid="uid://bg3f6vr4tvo1v" path="res://recursos/Computer.png" id="4_hpmgr"]
+[ext_resource type="Texture2D" uid="uid://b8c2k7kk61kkd" path="res://recursos/Player.png" id="5_w2ra7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w1uea"]
+font = ExtResource("2_x8a4r")
+font_size = 90
+font_color = Color(1, 0.2, 0.109804, 1)
+
+[node name="inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_x8a4r")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 3.0
+offset_right = 798.0
+offset_bottom = 458.0
+scale = Vector2(1.44264, 1.41429)
+texture = ExtResource("1_7e6sy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 97.0
+offset_right = 1061.0
+offset_bottom = 196.0
+text = "Ping Pong Pank"
+label_settings = SubResource("LabelSettings_w1uea")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 0.356863, 0.160784, 1)
+layout_mode = 0
+offset_left = 270.0
+offset_top = 412.0
+offset_right = 885.0
+offset_bottom = 538.0
+theme_override_fonts/font = ExtResource("2_x8a4r")
+theme_override_font_sizes/font_size = 50
+text = "Empezar Partida"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(574, 250.5)
+scale = Vector2(1.6, 1.63333)
+texture = ExtResource("3_xagyt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(351.875, 270)
+scale = Vector2(1.77941, 1)
+texture = ExtResource("4_hpmgr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(798.75, 279)
+scale = Vector2(1.55882, 1)
+texture = ExtResource("5_w2ra7")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

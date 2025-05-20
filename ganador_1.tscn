@@ -1,39 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbffp5lqcufo3"]
+[gd_scene load_steps=9 format=3 uid="uid://dbffp5lqcufo3"]
 
 [ext_resource type="Texture2D" uid="uid://b4kcstsp3n8mp" path="res://recursos/ganador 1.png" id="1_it1yp"]
 [ext_resource type="Script" uid="uid://bhmt4bro3bltp" path="res://ganador_1.gd" id="1_yqjkg"]
 [ext_resource type="FontFile" uid="uid://dmvqi817gebfv" path="res://recursos/drover3dital.ttf" id="2_yqjkg"]
+[ext_resource type="Texture2D" uid="uid://dh2jut4p0t8gp" path="res://recursos/game over 2.jpg" id="4_k7138"]
+[ext_resource type="Texture2D" uid="uid://b8c2k7kk61kkd" path="res://recursos/Player.png" id="5_530v8"]
+[ext_resource type="Texture2D" uid="uid://cr7ap5hlo4qft" path="res://recursos/Ball.png" id="6_mvlk7"]
+[ext_resource type="Texture2D" uid="uid://bg3f6vr4tvo1v" path="res://recursos/Computer.png" id="7_7he12"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k7138"]
 font = ExtResource("2_yqjkg")
 font_size = 80
 
-[node name="ganador 1" type="Node2D"]
+[node name="ganador  y perdedor 1" type="Node2D"]
 script = ExtResource("1_yqjkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575.75, 323.75)
-scale = Vector2(5.12222, 2.88222)
+position = Vector2(293.25, 323.75)
+scale = Vector2(2.61111, 2.88222)
 texture = ExtResource("1_it1yp")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 304.0
-offset_top = 40.0
-offset_right = 872.0
-offset_bottom = 217.0
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 590.0
+offset_bottom = 196.0
 text = "jugador 1
 "
 label_settings = SubResource("LabelSettings_k7138")
 
 [node name="volver" type="Button" parent="."]
 modulate = Color(0, 0.718361, 0.721056, 1)
-offset_left = 408.0
-offset_top = 536.0
-offset_right = 752.0
-offset_bottom = 608.0
+offset_left = 156.0
+offset_top = 538.0
+offset_right = 420.0
+offset_bottom = 610.0
 theme_override_fonts/font = ExtResource("2_yqjkg")
 theme_override_font_sizes/font_size = 30
-text = "volver a la partida
+text = "volver
 "
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(863.5, 322)
+scale = Vector2(1.91, 3.82143)
+texture = ExtResource("4_k7138")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 590.0
+offset_top = 13.0
+offset_right = 1136.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("2_yqjkg")
+theme_override_font_sizes/font_size = 80
+text = "jugador 2"
+
+[node name="salir" type="Button" parent="."]
+modulate = Color(1, 0.882353, 1, 1)
+offset_left = 781.0
+offset_top = 536.0
+offset_right = 927.0
+offset_bottom = 596.0
+theme_override_fonts/font = ExtResource("2_yqjkg")
+theme_override_font_sizes/font_size = 30
+text = "salir"
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(69, 468)
+scale = Vector2(2.5, 1.20833)
+texture = ExtResource("5_530v8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(64, 300)
+scale = Vector2(1.96667, 2.13333)
+texture = ExtResource("6_mvlk7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(1107, 485.25)
+scale = Vector2(2.26471, 1.1875)
+texture = ExtResource("7_7he12")
+
 [connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
